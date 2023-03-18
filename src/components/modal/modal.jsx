@@ -74,7 +74,7 @@ function Modal({ sections, handleNewSections }) {
           </button>
           <p>اضف سيكشن ورتبه داخل الموقع</p>
           <div>
-            {newSections.map((item) => {
+            {newSections.map(( item) => {
               return (
                 <button
                   onClick={() => {
