@@ -37,6 +37,11 @@
       "last 1 safari version"
     ]
   },
+  "git": {
+    "scripts": {
+      "pre-push": "surge --project ./build --domain sort_your_website.surge.sh"
+    }
+  },
   "devDependencies": {
     "@types/sortablejs": "^1.15.1",
     "tailwindcss": "^3.2.7"
