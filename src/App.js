@@ -1,7 +1,8 @@
 import "./App.css";
 import { useState } from "react";
 import { ReactSortable } from "react-sortablejs";
-import Modal from "./components/modal/modal";
+import SectionModal from "./components/SectionModal/SectionModal";
+import data from "./websiteSections.json";
 
 const style = {
   page_title: `font-bold bg-sky-800 text-white p-4 text-2xl`,
@@ -9,51 +10,13 @@ const style = {
   action_button: `w-[100%] bg-sky-600 p-2 mt-2 text-white font-bold`,
   item: `bg-sky-100 p-2 mt-4`,
 };
-const website_sections = [
-  {
-    id: 1,
-    name: "سلايدر",
-    image: "https://i.postimg.cc/76GVVh4M/slider.png",
-  },
-  {
-    id: 2,
-    name: "الأقسام",
-    image: "https://i.postimg.cc/yNrjc9M8/category.png",
-  },
-  {
-    id: 3,
-    name: "الأكثر مبيعا",
-    image: "https://i.postimg.cc/g2HBXxcx/best-sellers.png",
-  },
-  {
-    id: 4,
-    name: "بنر عرضي",
-    image: "https://i.postimg.cc/65WNHx74/banner.png",
-  },
-  {
-    id: 5,
-    name: "احدث المنتجات",
-    image: "https://i.postimg.cc/cJD9hPnZ/new-arrivals.png",
-  },
-  {
-    id: 6,
-    name: "اراء العملاء",
-    image: "https://i.postimg.cc/zDQ7Vnnt/reviews.png",
-  },
-  {
-    id: 7,
-    name: "الماركات",
-    image: "https://i.postimg.cc/pXnZ8pC2/brands.png",
-  },
-];
 function App() {
-
-  const [sections, setSections] = useState(website_sections);
-// adding new section from child component to main section array
+  const [sections, setSections] = useState(data.sections);
+  // adding new section from child component to main section array
   const NewSectionsCallback = (newSections) => {
-    setSections(newSections)
-    console.log(newSections)
-  }
+    setSections(newSections);
+    console.log(newSections);
+  };
   const sendButton = () => {
     let finalData = [];
     sections.map((item) => {
@@ -98,7 +61,7 @@ function App() {
             <p>فوتر</p>
           </div> */}
           <div className="mt-4">
-            <Modal sections={website_sections} handleNewSections={NewSectionsCallback} />
+            <SectionModal handleNewSections={NewSectionsCallback} />
             <button className={style.action_button} onClick={sendButton}>
               ارسال
             </button>
