@@ -1,0 +1,39 @@
+{
+    "sections": [
+        {
+            "id": 1,
+            "name": "سلايدر",
+            "image": "https://i.postimg.cc/76GVVh4M/slider.png"
+        },
+        {
+            "id": 2,
+            "name": "الأقسام",
+            "image": "https://i.postimg.cc/yNrjc9M8/category.png"
+        },
+        {
+            "id": 3,
+            "name": "الأكثر مبيعا",
+            "image": "https://i.postimg.cc/g2HBXxcx/best-sellers.png"
+        },
+        {
+            "id": 4,
+            "name": "بنر عرضي",
+            "image": "https://i.postimg.cc/65WNHx74/banner.png"
+        },
+        {
+            "id": 5,
+            "name": "احدث المنتجات",
+            "image": "https://i.postimg.cc/cJD9hPnZ/new-arrivals.png"
+        },
+        {
+            "id": 6,
+            "name": "اراء العملاء",
+            "image": "https://i.postimg.cc/zDQ7Vnnt/reviews.png"
+        },
+        {
+            "id": 7,
+            "name": "الماركات",
+            "image": "https://i.postimg.cc/pXnZ8pC2/brands.png"
+        }
+    ]
+}
