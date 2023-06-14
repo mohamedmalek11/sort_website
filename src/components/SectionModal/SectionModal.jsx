@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./style.css";
-import data from "../../websiteSections.json";
+
 import Products from "./sectionsType/products";
 
 const style = {
@@ -36,21 +36,10 @@ const style = {
 // ];
 function SectionModal({ handleNewSections }) {
   const [openModal, setModal] = useState(false);
-
-  // const addSection = (image, name) => {
-  //   data.sections.push({
-  //     id: data.sections.length + 1,
-  //     name: name,
-  //     image: image,
-  //     chosen: false,
-  //     selected: false,
-  //   });
-  //   console.log(data.sections);
-  //   // send new section to parent component
-  //   handleNewSections(data.sections);
-  //   // close popup
-  //   setModal(false);
-  // };
+  const handleCloseButton = () => {
+    setModal((current) => !current);
+    handleNewSections();
+  };
 
   return (
     <div>
@@ -75,7 +64,7 @@ function SectionModal({ handleNewSections }) {
             </button>
             <p>اضف سيكشن ورتبه داخل الموقع</p>
             <div>
-              <Products />
+              <Products closeButton={handleCloseButton} />
               <button className={style.sec_button + " mt-4"}>
                 <p>سيكشن مخصص</p>
               </button>

@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ReactSortable } from "react-sortablejs";
 import SectionModal from "./components/SectionModal/SectionModal";
 import data from "./websiteSections.json";
@@ -13,15 +13,15 @@ const style = {
 function App() {
   const [sections, setSections] = useState(data.sections);
   // adding new section from child component to main section array
-  const NewSectionsCallback = (newSections) => {
-    setSections(newSections);
-    console.log(newSections);
+  const NewSectionsCallback = () => {
+    setSections(data.sections);
+    data.sections = sections;
   };
+  
+  useEffect(() => {
+  }, [sections]);
   const sendButton = () => {
-    let finalData = [];
-    sections.map((item) => {
-      return finalData.push(item.name);
-    });
+    let finalData = [...sections];
     console.log(finalData);
   };
   return (
@@ -40,9 +40,14 @@ function App() {
             />
             <p>هيدر</p>
           </div>
-          <ReactSortable animation={200} list={sections} setList={setSections}>
+          <ReactSortable list={sections} setList={setSections}>
             {sections.map((item) => (
-              <div draggable={false} className={style.item} key={item.id}>
+              <div
+                id={item.id}
+                draggable={false}
+                className={style.item + " sortableItem"}
+                key={item.id}
+              >
                 <img
                   src={item.image}
                   alt={"صورة " + item.name}
