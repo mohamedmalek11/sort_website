@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { ReactSortable } from "react-sortablejs";
 import SectionModal from "./components/SectionModal/SectionModal";
 import data from "./websiteSections.json";
+import axios from "axios";
 
 const style = {
   page_title: `font-bold bg-sky-800 text-white p-4 text-2xl`,
@@ -17,11 +18,21 @@ function App() {
     setSections(data.sections);
     data.sections = sections;
   };
-  
   useEffect(() => {
   }, [sections]);
   const sendButton = () => {
     let finalData = [...sections];
+    const apiKey = '5b4ad0cd50b6a6854f650aeaae6109e3';
+const token = 'ATTA652ae069bb1e951be7bd35882f3b9f5ee9e6e61ffba569e1d47ef9dd65af0f9eA44FA1AE';
+const boardId = '1t06Jy0E';
+
+axios.post(`https://api.trello.com/1/boards/${boardId}?key=${apiKey}&token=${token}`)
+  .then(response => {
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.log(error);
+  });
     console.log(finalData);
   };
   return (
